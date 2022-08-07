@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <div class="box" id="heading">
     <h1>Today is <%= TODAY%></h1>
-  </body>
+  </div>
+
+  <div class="box">
+    <ul>
+      <% for (var i=0; i < TASKS.length; i++) { %>
+      <div class="item">
+        <input type="checkbox">
+        <p><%= TASKS[i]%></p>
+      </div>
+      <% } %>
+      <form action="/add" method="post">
+        <input type="text" name="task" placeholder="new task" autocomplete="off">
+        <button type="submit" name="button">+</button>
+      </form>
+  </div>
+</body>
+
 </html>
