@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const methods = require(__dirname + '/methods.js');
 
 app = express();
 
@@ -16,9 +17,9 @@ function addItem(item) {
 };
 
 app.get("/", function(req, res) {
-  let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-  let day = new Date().toLocaleDateString('en-us', options);
-  console.log(items);
+  // let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  // let day = new Date().toLocaleDateString('en-us', options);
+  let day = methods.getDate();
   res.render('index', {TODAY: day, TASKS: items});
 })
 
